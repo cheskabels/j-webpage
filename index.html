@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💕</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: "Courier New", monospace;
+  }
+
+  /* Shared background */
+  .pink-bg {
+    background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+    color: white;
+  }
+  .white-bg {
+    background: white;
+    color: #ff69b4;
+  }
+
+  /* Container setup */
+  .page {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+  }
+  .active {
+    display: flex;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  h1, h2 {
+    margin: 0.5em;
+    font-size: 3em;
+  }
+
+  img.button {
+    width: 140px;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  /* Button animations */
+  .button:hover {
+    transform: scale(1.1);
+  }
+
+  .wiggle {
+    animation: wiggle 0.4s;
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+  }
+
+  .bounce {
+    animation: bounce 0.4s;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Hearts */
+  .heart {
+    position: absolute;
+    font-size: 1.2em;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: floatUp 4s linear infinite;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+  }
+  
+.gif-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  overflow: hidden;
+}
+
+.final-gif {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  border-radius: 12px;
+  opacity: 0.9;
+  animation: floatRandom 10s infinite ease-in-out;
+}
+
+@keyframes floatRandom {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -40px) rotate(3deg); }
+  50% { transform: translate(-40px, 20px) rotate(-2deg); }
+  75% { transform: translate(20px, 40px) rotate(2deg); }
+}
+
+
+</style>
+</head>
+<body class="pink-bg">
+
+<!-- Intro Page -->
+<div id="intro" class="page active">
+  <h1>Hi, Pretty!</h1>
+  <img id="startBtn" class="button" src="images/pixel-start.png" alt="Start">
+</div>
+
+<!-- Question 1 -->
+<div id="q1" class="page pink-bg">
+  <h2>Are you feeling good today?</h2>
+  <div>
+    <img id="yes1" class="button" src="images/pixel-yes.png" alt="Yes">
+    <img id="no1" class="button" src="images/pixel-no.png" alt="No">
+  </div>
+</div>
+
+<!-- Q1 Yes Page -->
+<div id="happy" class="page white-bg">
+  <h2>That makes me happy</h2>
+  <img class="gif" src="gifs/cat-y1.gif" alt="Happy Gif" width="200">
+  <img id="next1" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Q1 No Page -->
+<div id="sad" class="page white-bg">
+  <h2>Aww, I hope I can help make it better</h2>
+  <img class="gif" src="gifs/cat-n1.gif" alt="Sad Gif" width="200">
+  <img id="next2" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Question 2 -->
+<div id="q2" class="page pink-bg">
+  <h2>Do you want a little surprise question from me?</h2>
+  <div>
+    <img id="yes2" class="button" src="images/pixel-yes.png" alt="Yes">
+    <img id="no2" class="button" src="images/pixel-no.png" alt="No">
+  </div>
+</div>
+
+<!-- Q2 Yes Page -->
+<div id="surprise" class="page white-bg">
+  <h2>Good choice 😉</h2>
+  <img class="gif" src="gifs/cat-y2.gif" alt="Surprise Gif" width="200">
+  <img id="next3" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Q2 No Page -->
+<div id="surprise1" class="page white-bg">
+  <h2>Too late, I already prepared one 😄</h2>
+  <img class="gif" src="gifs/cat-n2.gif" alt="Surprise Gif" width="200">
+  <img id="next4" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Question 3 -->
+<div id="q3" class="page pink-bg">
+  <h2>Do you smile (even a little) when you see my messages?</h2>
+  <div>
+    <img id="yes3" class="button" src="images/pixel-yes.png" alt="Yes">
+    <img id="no3" class="button" src="images/pixel-no.png" alt="No">
+  </div>
+</div>
+
+<!-- Q3 Yes Page -->
+<div id="smile" class="page white-bg">
+  <h2>That’s my favorite kind of smile 😍</h2>
+  <img class="gif" src="gifs/cat-y3.gif" alt="Surprise Gif" width="200">
+  <img id="next5" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Q3 No Page -->
+<div id="smile1" class="page white-bg">
+  <h2>I’ll keep trying until I earn one 😤</h2>
+  <img class="gif" src="gifs/cat-n3.gif" alt="Surprise Gif" width="200">
+  <img id="next6" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Question 4 -->
+<div id="q4" class="page pink-bg">
+  <h2>Do you think I make your days a bit brighter?</h2>
+  <div>
+    <img id="yes4" class="button" src="images/pixel-yes.png" alt="Yes">
+    <img id="no4" class="button" src="images/pixel-no.png" alt="No">
+  </div>
+</div>
+
+<!-- Q4 Yes Page -->
+<div id="happyheart" class="page white-bg">
+  <h2>That makes my heart happy 💕</h2>
+  <img class="gif" src="gifs/cat-y4.gif" alt="Surprise Gif" width="200">
+  <img id="next7" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Q4 No Page -->
+<div id="happyheart1" class="page white-bg">
+  <h2>Challenge accepted — I’ll change that 🌞</h2>
+  <img class="gif" src="gifs/cat-n4.gif" alt="Surprise Gif" width="200">
+  <img id="next8" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Question 5 -->
+<div id="q5" class="page pink-bg">
+  <h2>Then… can we make it official? Will you be my girlfriend?</h2>
+  <div>
+    <img id="yes5" class="button" src="images/pixel-yes.png" alt="Yes">
+    <img id="no5" class="button" src="images/pixel-no.png" alt="No">
+  </div>
+</div>
+
+<!-- Q5 Yes Page -->
+<div id="official" class="page white-bg">
+  <h2>Best. Day. Ever. 💖 You’re my girlfriend now! 😭💘</h2>
+  <img class="gif" src="gifs/cat-y5.gif" alt="Surprise Gif" width="200">
+  <img id="next9" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Q5 No Page -->
+<div id="official1" class="page white-bg">
+  <h2>Haha, I’ll take that as a ‘maybe later’ 😅 (but I’m not giving up 😉)</h2>
+  <img class="gif" src="gifs/cat-n5.gif" alt="Surprise Gif" width="200">
+  <img id="next10" class="button" src="images/pixel-next.png" alt="Next">
+</div>
+
+<!-- Final Floating GIF Page -->
+<div id="gifPage" class="page hidden">
+  <div class="gif-container">
+    <img src="gifs/extras-1.gif" class="final-gif" style="top:10%; left:15%;">
+    <img src="gifs/extras-2.gif" class="final-gif" style="top:25%; left:60%;">
+    <img src="gifs/extras-3.gif" class="final-gif" style="top:55%; left:35%;">
+    <img src="gifs/extras-4.gif" class="final-gif" style="top:70%; left:70%;">
+    <img src="gifs/extras-5.gif" class="final-gif" style="top:40%; left:10%;">
+    <img src="gifs/extras-6.gif" class="final-gif" style="top:15%; left:80%;">
+    <img src="gifs/extras-7.gif" class="final-gif" style="top:65%; left:50%;">
+    <img src="gifs/extras-8.gif" class="final-gif" style="top:80%; left:25%;">
+  </div>
+</div>
+
+
+<script>
+function showPage(id, bgClass) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.body.className = bgClass;
+  document.getElementById(id).classList.add('active');
+  createHearts(bgClass === 'white-bg' ? '#ff69b4' : 'white');
+}
+
+function createHearts(color) {
+  document.querySelectorAll('.heart').forEach(h => h.remove());
+  for (let i = 0; i < 25; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '♡';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = Math.random() * 100 + 'vh';
+    heart.style.color = color;
+    heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+    document.body.appendChild(heart);
+  }
+}
+
+function addWiggle(id) {
+  const el = document.getElementById(id);
+  el.classList.add('wiggle');
+  setTimeout(() => el.classList.remove('wiggle'), 400);
+}
+
+function addBounce(id) {
+  const el = document.getElementById(id);
+  el.classList.add('bounce');
+  setTimeout(() => el.classList.remove('bounce'), 400);
+}
+
+document.getElementById('startBtn').onclick = () => {
+  addBounce('startBtn');
+  setTimeout(() => showPage('q1', 'pink-bg'), 400);
+};
+document.getElementById('yes1').onclick = () => {
+  addWiggle('yes1');
+  setTimeout(() => showPage('happy', 'white-bg'), 400);
+};
+document.getElementById('no1').onclick = () => {
+  addWiggle('no1');
+  setTimeout(() => showPage('sad', 'white-bg'), 400);
+};
+document.getElementById('next1').onclick = () => {
+  addBounce('next1');
+  setTimeout(() => showPage('q2', 'pink-bg'), 400);
+};
+document.getElementById('next2').onclick = () => {
+  addBounce('next2');
+  setTimeout(() => showPage('q2', 'pink-bg'), 400);
+};
+document.getElementById('yes2').onclick = () => {
+  addWiggle('yes2');
+  setTimeout(() => showPage('surprise', 'white-bg'), 400);
+};
+document.getElementById('no2').onclick = () => {
+  addWiggle('no2');
+  setTimeout(() => showPage('surprise1', 'white-bg'), 400);
+};
+document.getElementById('next3').onclick = () => {
+	addBounce('next3');
+	setTimeout(() => showPage('q3', 'pink-bg'), 400);
+};
+document.getElementById('next4').onclick = () => {
+	addBounce('next4');
+	setTimeout(() => showPage('q3', 'pink-bg'), 400);
+};
+document.getElementById('yes3').onclick = () => {
+  addWiggle('yes3');
+  setTimeout(() => showPage('smile', 'white-bg'), 400);
+};
+document.getElementById('no3').onclick = () => {
+  addWiggle('no3');
+  setTimeout(() => showPage('smile1', 'white-bg'), 400);
+};
+document.getElementById('next5').onclick = () => {
+	addBounce('next5');
+	setTimeout(() => showPage('q4', 'pink-bg'), 400);
+};
+document.getElementById('next6').onclick = () => {
+	addBounce('next6');
+	setTimeout(() => showPage('q4', 'pink-bg'), 400);
+};
+document.getElementById('yes4').onclick = () => {
+  addWiggle('yes4');
+  setTimeout(() => showPage('happyheart', 'white-bg'), 400);
+};
+document.getElementById('no4').onclick = () => {
+  addWiggle('no4');
+  setTimeout(() => showPage('happyheart1', 'white-bg'), 400);
+};
+document.getElementById('next7').onclick = () => {
+	addBounce('next7');
+	setTimeout(() => showPage('q5', 'pink-bg'), 400);
+};
+document.getElementById('next8').onclick = () => {
+	addBounce('next8');
+	setTimeout(() => showPage('q5', 'pink-bg'), 400);
+};
+document.getElementById('yes5').onclick = () => {
+  addWiggle('yes5');
+  setTimeout(() => showPage('official', 'white-bg'), 400);
+};
+document.getElementById('no5').onclick = () => {
+  addWiggle('no5');
+  setTimeout(() => showPage('official1', 'white-bg'), 400);
+};
+document.getElementById('next9').onclick = () => {
+	addBounce('next9');
+	setTimeout(() => showPage('gifPage', 'white-bg'), 400);
+};
+document.getElementById('next10').onclick = () => {
+	addBounce('next10');
+	setTimeout(() => showPage('gifPage', 'white-bg'), 400);
+};
+
+// Initialize hearts
+createHearts('white');
+</script>
+</body>
+</html>
